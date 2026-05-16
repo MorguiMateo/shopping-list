@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Leche entera",
+      "quantity": 2,
+      "unit": "litros",
+      "done": false
+    },
+    {
+      "id": 2,
+      "name": "Pan integral",
+      "quantity": 1,
+      "unit": "unidades",
+      "done": false
+    },
+    {
+      "id": 3,
+      "name": "Arroz largo fino",
+      "quantity": 1,
+      "unit": "kg",
+      "done": true
+    }
+  ]
+}
