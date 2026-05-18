@@ -1,25 +1,47 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Leche entera",
       "quantity": 2,
       "unit": "litros",
       "done": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Pan integral",
       "quantity": 1,
       "unit": "unidades",
       "done": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Arroz largo fino",
       "quantity": 1,
       "unit": "kg",
-      "done": true
+      "done": false
+    },
+    {
+      "name": "lechuga",
+      "quantity": 1,
+      "unit": "1",
+      "done": true,
+      "id": "B7MiHZveNr0"
+    },
+    {
+      "name": "prueba",
+      "quantity": 1,
+      "unit": "1",
+      "done": true,
+      "id": "SxktjYGbwtc"
+    },
+    {
+      "name": "asd",
+      "quantity": 1,
+      "unit": "2",
+      "done": false,
+      "id": "L9Cr_2R1NlI"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

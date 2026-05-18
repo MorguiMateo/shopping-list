@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { User } from '../types';
+import { persist, createJSONStorage } from 'zustand/middleware';
+import type { User } from '../types';
 
 interface AuthStore {
   user: User | null;
@@ -12,26 +13,34 @@ interface AuthStore {
 const MAIL = "pepe@gmail.com";
 const PASSWORD = "pepePassword23";
 
-const useAuthStore = create<AuthStore>()((set) => ({
+const useAuthStore = create<AuthStore>()(
+  persist(
+    (set) => ({
+      user: null,
+      isAuthenticated: false,
+      error: null,
 
-    user: null,
-    isAuthenticated: false,
-    error: null,
-
-    login: (credentials) => {
+      login: (credentials) => {
         if (credentials.email === MAIL && credentials.password === PASSWORD) {
-            // Limpia cualquier error previo de intentos fallidos
-            set({ user: credentials, isAuthenticated: true, error: null });
-            return true;
+          set({ user: credentials, isAuthenticated: true, error: null });
+          return true;
         }
-        // Permite que el componente muestre el mensaje de error
         set({ error: "Credenciales incorrectas" });
         return false;
-    },
-    logout: () => {
-        // Logout es local, no puede fallar; solo resetea el estado
+      },
+      logout: () => {
         set({ user: null, isAuthenticated: false, error: null });
-    },
-  }))
+      },
+    }),
+    {
+      name: "auth-storage",
+      storage: createJSONStorage(() => localStorage),
+      partialize: (state) => ({
+        user: state.user,
+        isAuthenticated: state.isAuthenticated,
+      }),
+    }
+  )
+);
 
 export default useAuthStore;

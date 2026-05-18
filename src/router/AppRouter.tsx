@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import PrivateRoute from '../modules/auth/components/PrivateRoute';
-import LoginPage from '../modules/auth/components/LoginPage';
-import ShoppingListPage from '../modules/shopping-list/components/ShoppingListPage';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { LoginPage, PrivateRoute } from "../modules/auth";
+import { ShoppingListPage } from "../modules/shopping-list";
 
 function AppRouter() {
   return (
